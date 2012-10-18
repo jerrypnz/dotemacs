@@ -1,0 +1,16 @@
+#name: beamer
+# --
+#+TITLE:     ${1:Title}
+#+AUTHOR:    ${2:Jerry Peng}
+#+EMAIL:     ${3:pr2jerry@gmail.com}
+#+DATE:      ${4:`(format-time-string "%Y-%m-%d")`}
+#+DESCRIPTION: $5
+#+KEYWORDS: $6
+#+LANGUAGE:  ${7:zh_CN}
+#+STARTUP: beamer
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [bigger]
+#+BEAMER_FRAME_LEVEL: 2
+#+BEAMER_HEADER_EXTRA: \mode<beamer>{\usetheme{Madrid}}
+
+$0

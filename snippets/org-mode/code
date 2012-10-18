@@ -1,0 +1,5 @@
+#name: code
+# --
+#+BEGIN_SRC ${1:elisp}
+$0
+#+END_SRC
