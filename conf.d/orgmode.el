@@ -26,6 +26,9 @@
   '("xelatex -interaction nonstopmode %f"
     "xelatex -interaction nonstopmode %f")) ;; for multiple passes
 
+;; Stop org from keep the tables centered
+(setq org-export-latex-tables-centered nil)
+
 (defvar en-article "
 \\documentclass{scrartcl}
 \\usepackage{hyperref}
@@ -33,7 +36,7 @@
 \\usepackage[hyperref,x11names,usenames,dvipsnames]{xcolor}
 \\hypersetup{colorlinks=true,linkcolor=BlueViolet}
 \\usepackage{listings}
-\\usepackage[top=0.7in,bottom=0.7in,left=0.8in,right=0.8in]{geometry}
+\\usepackage[top=1in,bottom=1in,left=0.8in,right=0.8in]{geometry}
 \\usepackage[center,pagestyles]{titlesec}
 \\titleformat{\\section}{\\Large\\bfseries}{\\S\\,\\thesection}{1em}{}
 \\titleformat{\\subsection}{\\large\\bfseries}{\\S\\,\\thesubsection}{1em}{}
