@@ -9,3 +9,4 @@ url/
 eshell/
 ac-comphist.dat
 bookmarks
+conf.d/*.elc

@@ -36,10 +36,12 @@
 (add-to-list 'load-path (concat user-emacs-directory "lib") t)
 (add-to-list 'load-path (concat user-emacs-directory "pymacs-0.25") t)
 
-(mapc 'load (directory-files
-             (concat user-emacs-directory "conf.d")
-             t
-             "\\.el$"))
+(defvar my-conf-dir (concat user-emacs-directory "conf.d"))
+(byte-recompile-directory my-conf-dir 0)
+
+(mapc (lambda (filename)
+        (load filename nil nil t))
+      (directory-files my-conf-dir t "\\.elc$"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
