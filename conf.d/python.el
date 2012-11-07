@@ -46,4 +46,4 @@
           (lambda ()
             (local-set-key (kbd ".") 'ropemacs-dot-command)
             (local-set-key (kbd "M-/") 'ropemacs-complete)
-            (local-set-key (kbd "C-M-/" 'hippie-expand))))
+            (local-set-key (kbd "C-M-/") 'hippie-expand)))

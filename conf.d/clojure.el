@@ -96,11 +96,11 @@
 (add-hook 'nrepl-mode-hook
           (lambda ()
             (local-set-key (kbd "M-/") 'clojure-complete)
-            (local-set-key (kbd "C-M-/" 'hippie-expand))))
+            (local-set-key (kbd "C-M-/") 'hippie-expand)))
 (add-hook 'nrepl-interaction-mode-hook
           (lambda ()
             (local-set-key (kbd "M-/") 'clojure-complete)
-            (local-set-key (kbd "C-M-/" 'hippie-expand))))
+            (local-set-key (kbd "C-M-/") 'hippie-expand)))
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
 
