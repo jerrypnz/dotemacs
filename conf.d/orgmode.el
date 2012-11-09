@@ -38,6 +38,9 @@
 \\usepackage{listings}
 \\usepackage[top=1in,bottom=1in,left=0.8in,right=0.8in]{geometry}
 \\usepackage[center,pagestyles]{titlesec}
+\\usepackage{indentfirst}
+\\setlength{\\parskip}{0.5\\baselineskip}
+\\setlength{\\parindent}{0em}
 \\titleformat{\\section}{\\Large\\bfseries}{\\S\\,\\thesection}{1em}{}
 \\titleformat{\\subsection}{\\large\\bfseries}{\\S\\,\\thesubsection}{1em}{}
 \\titleformat{\\subsubsection}{\\bfseries}{$\\cdot$~\\,\\thesubsubsection}{0.5em}{}
