@@ -53,7 +53,7 @@
 (defvar zh-preamble "
 \\usepackage{xeCJK}
 \\setCJKmainfont[BoldFont=SimHei, ItalicFont=KaiTi]{SimSun}
-\\setCJKmonofont[Scale=0.9]{Ubuntu Mono}
+\\setCJKmonofont[Scale=0.9]{KaiTi}
 \\setCJKfamilyfont{song}[BoldFont=SimSun]{SimSun}
 \\setCJKfamilyfont{sf}[BoldFont=SimSun]{SimSun}
 \\renewcommand{\\contentsname}{目录}
