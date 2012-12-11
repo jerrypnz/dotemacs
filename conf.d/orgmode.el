@@ -23,11 +23,12 @@
          "* %<%D> %^{Title} :NOTE:%^G\n%?")))
 
 (setq org-latex-to-pdf-process 
-  '("xelatex -interaction nonstopmode %f"
-    "xelatex -interaction nonstopmode %f")) ;; for multiple passes
+  '("xelatex -shell-escape -interaction nonstopmode %f"
+    "xelatex -shell-escape -interaction nonstopmode %f")) ;; for multiple passes
 
 ;; Stop org from keep the tables centered
 (setq org-export-latex-tables-centered nil)
+(setq org-export-latex-listings 'minted)
 
 (defvar en-article "
 \\documentclass{scrartcl}
@@ -35,7 +36,7 @@
 \\usepackage{color}
 \\usepackage[hyperref,x11names,usenames,dvipsnames]{xcolor}
 \\hypersetup{colorlinks=true,linkcolor=BlueViolet}
-\\usepackage{listings}
+\\usepackage{minted}
 \\usepackage[top=1in,bottom=1in,left=0.8in,right=0.8in]{geometry}
 \\usepackage[center,pagestyles]{titlesec}
 \\usepackage{indentfirst}
