@@ -95,7 +95,7 @@
 
 (require 'org-beamer)
 (defvar beamer-opts "
-\\usepackage{listings}
+\\usepackage{minted}
 \\AtBeginSection[]{\\begin{frame}<beamer>\\frametitle{Topic}\\tableofcontents[currentsection]\\end{frame}}
 ")
 (defvar my-beamer-headers
