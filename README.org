@@ -90,6 +90,13 @@ orgmode.el里的配置可用于方便地使用org-mode编写文章，slides并�
 
 如果需要调整字体等设定，请自行修改orgmode.el。
 
+另外，基于 minted 包的代码高亮也是支持的，只需要系统中安装有 Pygments
+即可。在 Linux 下安装方法如下：
+
+#+BEGIN_SRC bash
+sudo pip install Pygments
+#+END_SRC
+
 *** 字体和配色
 
 默认使用了Ubuntu Mono和文泉驿等宽微米黑，配色使用了solarized-light。如
