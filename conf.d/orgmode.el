@@ -40,6 +40,7 @@
 \\usepackage[top=1in,bottom=1in,left=0.8in,right=0.8in]{geometry}
 \\usepackage[center,pagestyles]{titlesec}
 \\usepackage{indentfirst}
+\\usemintedstyle{emacs}
 \\setlength{\\parskip}{0.5\\baselineskip}
 \\setlength{\\parindent}{0em}
 \\titleformat{\\section}{\\Large\\bfseries}{\\S\\,\\thesection}{1em}{}
@@ -96,6 +97,7 @@
 (require 'org-beamer)
 (defvar beamer-opts "
 \\usepackage{minted}
+\\usemintedstyle{emacs}
 \\AtBeginSection[]{\\begin{frame}<beamer>\\frametitle{Topic}\\tableofcontents[currentsection]\\end{frame}}
 ")
 (defvar my-beamer-headers
