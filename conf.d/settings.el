@@ -29,7 +29,8 @@
 (eval-after-load 'textmate
   '(progn
      (define-key *textmate-mode-map* [(meta return)] nil)
-     (define-key *textmate-mode-map* [(control c)(control k)] nil)))
+     (define-key *textmate-mode-map* [(control c) (control k)] nil)
+     (define-key *textmate-mode-map* [(control c) (control t)] nil)))
 
 (textmate-mode)
 (add-to-list '*textmate-project-roots* "project.clj")
