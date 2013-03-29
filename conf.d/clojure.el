@@ -104,7 +104,7 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
 
-(setq nrepl-connected-hook (reverse nrepl-connected-hook))
+;;(setq nrepl-connected-hook (reverse nrepl-connected-hook))
 
 ;; highlight expression on eval
 (require 'highlight)

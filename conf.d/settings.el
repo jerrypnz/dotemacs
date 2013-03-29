@@ -49,8 +49,14 @@
   (set (make-local-variable 'truncate-lines) nil))
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
+;; Yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; Zen-coding
+(require 'zencoding-mode)
+(setq zencoding-indentation 2)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
 
 ;; ===== Custom keybindings ====
 ;;

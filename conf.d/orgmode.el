@@ -24,6 +24,8 @@
 
 (setq org-latex-to-pdf-process 
   '("xelatex -shell-escape -interaction nonstopmode %f"
+    "xelatex -shell-escape -interaction nonstopmode %f"
+    "xelatex -shell-escape -interaction nonstopmode %f"
     "xelatex -shell-escape -interaction nonstopmode %f")) ;; for multiple passes
 
 ;; Stop org from keep the tables centered
