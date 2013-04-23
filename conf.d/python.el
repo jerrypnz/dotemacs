@@ -18,32 +18,3 @@
   (py-mark-block nil 't)
   (back-to-indentation))
 
-;; pymacs
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
-
-(setq python-check-command "pyflakes")
-
-;; ropemacs completion
-(require 'auto-complete-python)
-
-(defun ropemacs-complete ()
-  (interactive)
-  (auto-complete '(ac-source-nropemacs-dot)))
-
-(defun ropemacs-dot-command ()
-  (interactive)
-  (self-insert-command 1)
-  (auto-complete '(ac-source-nropemacs-dot)))
-
-
-(add-hook 'python-mode-hook
-          (lambda ()
-            (local-set-key (kbd ".") 'ropemacs-dot-command)
-            (local-set-key (kbd "M-/") 'ropemacs-complete)
-            (local-set-key (kbd "C-M-/") 'hippie-expand)))

@@ -7,6 +7,10 @@
 
 (setq org-default-notes-file (concat org-directory "/captures.org"))
 
+(setq org-agenda-files `(,(concat org-directory "/todos.org")
+                         ,(concat org-directory "/todos/work")
+                         ,(concat org-directory "/notes/work")))
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
@@ -18,7 +22,7 @@
       '(("t" "Task" entry (file+headline
                            (concat org-directory "/todos.org")
                            "Tasks")
-         "** TODO %?\n%U\n")
+         "** TODO %?\n\n")
         ("n" "Note" entry (file (concat org-directory "/notes.org"))
          "* %<%D> %^{Title} :NOTE:%^G\n%?")))
 
@@ -111,3 +115,4 @@
   (setq org-beamer-header-extra
         (concat my-beamer-headers org-beamer-header-extra)))
 
+(require 'org-confluence)

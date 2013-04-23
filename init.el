@@ -36,7 +36,6 @@
     (package-install p)))
 
 (add-to-list 'load-path (concat user-emacs-directory "lib") t)
-(add-to-list 'load-path (concat user-emacs-directory "pymacs-0.25") t)
 
 (defvar my-conf-dir (concat user-emacs-directory "conf.d"))
 (byte-recompile-directory my-conf-dir 0)

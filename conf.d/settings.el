@@ -1,5 +1,5 @@
 ;; Color theme
-(load-theme 'solarized-dark t)
+(load-theme 'cyberpunk t)
 
 ;; Setting fonts for GUI emacs
 (if (display-graphic-p)
