@@ -5,7 +5,7 @@
 (if (display-graphic-p)
     (progn
       (set-face-attribute
-       'default nil :font "Ubuntu Mono 12")
+       'default nil :font "Source Code Pro 10")
       (dolist (charset '(kana han symbol cjk-misc bopomofo))
         (set-fontset-font (frame-parameter nil 'font)
                           charset
@@ -36,6 +36,7 @@
 (add-to-list '*textmate-project-roots* "project.clj")
 (add-to-list '*textmate-project-roots* "setup.py")
 (add-to-list '*textmate-project-roots* ".ropeproject")
+(add-to-list '*textmate-project-roots* ".project")
 
 ;; IDO hacks
 ;; Display ido results vertically, rather than horizontally
