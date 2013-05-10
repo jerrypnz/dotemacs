@@ -5,7 +5,7 @@
 (if (display-graphic-p)
     (progn
       (set-face-attribute
-       'default nil :font "Source Code Pro 10")
+       'default nil :font "Source Code Pro Semibold 10")
       (dolist (charset '(kana han symbol cjk-misc bopomofo))
         (set-fontset-font (frame-parameter nil 'font)
                           charset
@@ -37,6 +37,14 @@
 (add-to-list '*textmate-project-roots* "setup.py")
 (add-to-list '*textmate-project-roots* ".ropeproject")
 (add-to-list '*textmate-project-roots* ".project")
+(add-to-list '*textmate-project-roots* "build.xml")
+(add-to-list '*textmate-project-roots* "build.gradle")
+
+;; Ack. use textmate project root as ack root dir
+(defun get-project-dir (arg)
+  (textmate-project-root))
+
+(setq ack-default-directory-function 'get-project-dir)
 
 ;; IDO hacks
 ;; Display ido results vertically, rather than horizontally
@@ -70,3 +78,13 @@
 
 ;; Expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; Iedit-mode
+(global-set-key (kbd "C-;") 'iedit-mode)
+
+(require 'custom-hack)
+;; Keybindings for custom hacks
+(global-set-key (kbd "C-o") 'start-newline-next)
+(global-set-key (kbd "M-o") 'start-newline-prev)
+(global-set-key (kbd "C-:") 'toggle-clj-keyword-string)
+(global-set-key (kbd "C-S-g") 'ack-current-word)

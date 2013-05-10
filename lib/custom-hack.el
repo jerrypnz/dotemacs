@@ -62,8 +62,24 @@
      "xmllint --format -"
      (buffer-name) t)))
 
+(defun get-word-under-cursor ()
+  (let* ((current-point (point))
+         (word-start (progn (skip-syntax-backward "w_")
+                            (point)))
+         (word-end (progn (skip-syntax-forward "w_")
+                          (point)))
+         (word (buffer-substring word-start word-end)))
+    (goto-char current-point)
+    word))
 
-(global-set-key (kbd "C-o") 'start-newline-next)
-(global-set-key (kbd "M-o") 'start-newline-prev)
-(global-set-key (kbd "C-:") 'toggle-clj-keyword-string)
+(require 'ack)
+
+(defun ack-current-word ()
+  (interactive)
+  (let ((word (get-word-under-cursor)))
+    (if (string= word "")
+        (message "No word found under cursor")
+      (ack (concat "ack " word)))))
+
+(provide 'custom-hack)
 

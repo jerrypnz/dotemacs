@@ -60,10 +60,10 @@
 
 (defvar zh-preamble "
 \\usepackage{xeCJK}
-\\setCJKmainfont[BoldFont=SimHei, ItalicFont=KaiTi]{SimSun}
-\\setCJKmonofont[Scale=0.9]{KaiTi}
-\\setCJKfamilyfont{song}[BoldFont=SimSun]{SimSun}
-\\setCJKfamilyfont{sf}[BoldFont=SimSun]{SimSun}
+\\setCJKmainfont[BoldFont=Adobe Heiti Std, ItalicFont=Adobe Kaiti Std]{Adobe Song Std}
+\\setCJKmonofont[Scale=0.9]{Adobe Song Std}
+\\setCJKfamilyfont{song}[BoldFont=Adobe Heiti Std]{Adobe Song Std}
+\\setCJKfamilyfont{sf}[BoldFont=Adobe Heiti Std]{Adobe Song Std}
 \\renewcommand{\\contentsname}{目录}
 \\renewcommand{\\listfigurename}{插图目录}
 \\renewcommand{\\listtablename}{表格目录}
