@@ -62,6 +62,15 @@
      "xmllint --format -"
      (buffer-name) t)))
 
+(defun json-format ()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region
+     (mark)
+     (point)
+     "python -m json.tool"
+     (buffer-name) t)))
+
 (defun get-word-under-cursor ()
   (let* ((current-point (point))
          (word-start (progn (skip-syntax-backward "w_")

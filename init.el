@@ -17,12 +17,15 @@
     auto-complete
     color-theme-solarized
     cyberpunk-theme
+    zenburn-theme
+    birds-of-paradise-plus-theme
     clojure-mode
     python-mode
     geiser
     ipython
     org
-    org2blog
+;    org2blog
+    markdown-mode+
     nrepl
     ac-nrepl
     nrepl-eval-sexp-fu
