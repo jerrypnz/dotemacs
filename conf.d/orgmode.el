@@ -46,6 +46,7 @@
 \\usepackage[top=1in,bottom=1in,left=0.8in,right=0.8in]{geometry}
 \\usepackage[center,pagestyles]{titlesec}
 \\usepackage{indentfirst}
+\\usepackage[export]{adjustbox}
 \\usemintedstyle{emacs}
 \\setlength{\\parskip}{0.5\\baselineskip}
 \\setlength{\\parindent}{0em}

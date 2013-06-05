@@ -1,15 +1,19 @@
 ;; Color theme
-(load-theme 'cyberpunk t)
+(load-theme 'birds-of-paradise-plus t)
+
+;; (setq evil-default-cursor t)
 
 ;; Setting fonts for GUI emacs
 (if (display-graphic-p)
     (progn
       (set-face-attribute
-       'default nil :font "Source Code Pro Semibold 10")
+       'default nil :font "Source Code Pro 9")
       (dolist (charset '(kana han symbol cjk-misc bopomofo))
         (set-fontset-font (frame-parameter nil 'font)
                           charset
-                          (font-spec :family "文泉驿等宽微米黑" :size 16)))))
+                          (font-spec :family "文泉驿等宽微米黑"
+                                     :size 13
+                                     :weight 'light)))))
 
 ;; Change auto-save dir
 (defvar my-backup-dir (concat temporary-file-directory "emacs-backup"))

@@ -81,8 +81,8 @@
 ;; (add-to-list 'same-window-buffer-names "*nrepl*")
 
 ;;Auto Complete
-;;(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-;;(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 
 (defun clojure-complete ()
   (interactive)
