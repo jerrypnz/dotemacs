@@ -62,6 +62,23 @@
   (set (make-local-variable 'truncate-lines) nil))
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
+
+;; RET to newline-and-indent
+(defun set-newline-and-indent-key ()
+  (local-set-key (kbd "RET") 'reindent-then-newline-and-indent))
+
+(mapc (lambda (hook) (add-hook hook 'set-newline-and-indent-key))
+      '(c-mode-common-hook))
+
+;; Turn on auto pair for certain modes
+(defun turn-on-autopair-mode ()
+  (autopair-mode 1))
+
+(mapc (lambda (hook) (add-hook hook 'turn-on-autopair-mode))
+      '(python-mode-hook
+        c-mode-common-hook
+        ruby-mode-hook))
+
 ;; Yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)

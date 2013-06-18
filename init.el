@@ -14,6 +14,7 @@
     starter-kit-eshell
     starter-kit-bindings
     iedit
+    autopair
     auto-complete
     color-theme-solarized
     cyberpunk-theme
