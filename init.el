@@ -19,7 +19,6 @@
     color-theme-solarized
     cyberpunk-theme
     zenburn-theme
-    birds-of-paradise-plus-theme
     clojure-mode
     python-mode
     geiser
@@ -36,7 +35,8 @@
     expand-region
     textmate
     zencoding-mode
-    ack))
+    ack
+    powerline))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -50,3 +50,4 @@
 (mapc (lambda (filename)
         (load filename nil nil t))
       (directory-files my-conf-dir t "\\.elc$"))
+(put 'downcase-region 'disabled nil)

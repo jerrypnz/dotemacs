@@ -1,4 +1,6 @@
+
 ;; Color theme
+(require 'birds-of-paradise-plus-theme)
 (load-theme 'birds-of-paradise-plus t)
 
 ;; (setq evil-default-cursor t)
@@ -42,6 +44,7 @@
 (add-to-list '*textmate-project-roots* ".ropeproject")
 (add-to-list '*textmate-project-roots* ".project")
 (add-to-list '*textmate-project-roots* "build.xml")
+(add-to-list '*textmate-project-roots* "pom.xml")
 (add-to-list '*textmate-project-roots* "build.gradle")
 
 ;; Ack. use textmate project root as ack root dir
@@ -83,10 +86,28 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;; Powerline
+(require 'powerline)
+(powerline-default-theme)
+
+(custom-set-faces
+ '(mode-line ((t (:background "#0088cc" :foreground "white" :box nil))))
+ '(mode-line-inactive ((t (:box nil)))))
+
 ;; Zen-coding
 (require 'zencoding-mode)
 (setq zencoding-indentation 2)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
+
+;; Smooth scrolling
+(setq scroll-margin 1
+      scroll-step 1
+      scroll-conservatively 0
+      scroll-up-aggressively 0.01
+      scroll-down-aggressively 0.01
+      redisplay-dont-pause t)
+(setq-default scroll-up-aggressively 0.01
+              scroll-down-aggressively 0.01)
 
 ;; ===== Custom keybindings ====
 ;;
