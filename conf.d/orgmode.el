@@ -33,8 +33,8 @@
     "xelatex -shell-escape -interaction nonstopmode %f")) ;; for multiple passes
 
 ;; Stop org from keep the tables centered
-(setq org-export-latex-tables-centered nil)
-(setq org-export-latex-listings 'minted)
+(setq org-latex-tables-centered nil)
+(setq org-latex-listings 'minted)
 
 (defvar en-article "
 \\documentclass{scrartcl}
@@ -59,6 +59,13 @@
 \\pagestyle{main}
 ")
 
+(defvar en-beamer "
+\\documentclass\[presentation\]\{beamer\}
+\\usepackage{minted}
+\\usemintedstyle{emacs}
+\\AtBeginSection[]{\\begin{frame}<beamer>\\frametitle{Topic}\\tableofcontents[currentsection]\\end{frame}}
+")
+
 (defvar zh-preamble "
 \\usepackage{xeCJK}
 \\setCJKmainfont[BoldFont=Adobe Heiti Std, ItalicFont=Adobe Kaiti Std]{Adobe Song Std}
@@ -80,11 +87,14 @@
 (defvar cn-article
   (concat en-article zh-preamble))
 
-(require 'org-latex)
-(unless (boundp 'org-export-latex-classes)
-  (setq org-export-latex-classes nil))
+(defvar cn-beamer
+  (concat en-beamer zh-preamble))
 
-(add-to-list 'org-export-latex-classes
+(require 'ox-latex)
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+
+(add-to-list 'org-latex-classes
              `("article"
                ,en-article
                ("\\section{%s}" . "\\section*{%s}")
@@ -92,7 +102,7 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-(add-to-list 'org-export-latex-classes
+(add-to-list 'org-latex-classes
               `("cn-article"
                 ,cn-article
                 ("\\section{%s}" . "\\section*{%s}")
@@ -100,20 +110,22 @@
                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+(add-to-list 'org-latex-classes
+              `("beamer"
+                ,en-beamer
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+(add-to-list 'org-latex-classes
+              `("cn-beamer"
+                ,cn-beamer
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(require 'org-beamer)
-(defvar beamer-opts "
-\\usepackage{minted}
-\\usemintedstyle{emacs}
-\\AtBeginSection[]{\\begin{frame}<beamer>\\frametitle{Topic}\\tableofcontents[currentsection]\\end{frame}}
-")
-(defvar my-beamer-headers
-  (concat beamer-opts zh-preamble))
+(require 'ox-beamer)
 
-(defadvice org-beamer-amend-header (before insert-my-beamer-headers
-                                           ()
-                                           activate)
-  (setq org-beamer-header-extra
-        (concat my-beamer-headers org-beamer-header-extra)))
-
-(require 'org-confluence)

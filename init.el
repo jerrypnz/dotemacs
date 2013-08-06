@@ -24,7 +24,7 @@
     geiser
     ipython
     org
-;    org2blog
+    org2blog
     markdown-mode+
     nrepl
     ac-nrepl

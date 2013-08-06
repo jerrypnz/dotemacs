@@ -90,5 +90,14 @@
         (message "No word found under cursor")
       (ack (concat "ack " word)))))
 
+(defun search-word-under-cursor ()
+  (interactive)
+  (let ((word (get-word-under-cursor)))
+    (if (string= word "")
+        (message "No word found under cursor")
+      (progn
+        (isearch-search)
+        (isearch-yank-string word)))))
+
 (provide 'custom-hack)
 
