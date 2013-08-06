@@ -16,7 +16,6 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-(add-hook 'rst-mode-hook 'turn-on-orgtbl)
 
 (setq org-capture-templates
       '(("t" "Task" entry (file+headline
@@ -26,7 +25,7 @@
         ("n" "Note" entry (file (concat org-directory "/notes.org"))
          "* %<%D> %^{Title} :NOTE:%^G\n%?")))
 
-(setq org-latex-to-pdf-process 
+(setq org-latex-pdf-process
   '("xelatex -shell-escape -interaction nonstopmode %f"
     "xelatex -shell-escape -interaction nonstopmode %f"
     "xelatex -shell-escape -interaction nonstopmode %f"
@@ -91,6 +90,7 @@
   (concat en-beamer zh-preamble))
 
 (require 'ox-latex)
+(require 'ox-beamer)
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 
@@ -127,5 +127,4 @@
                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(require 'ox-beamer)
 
