@@ -36,7 +36,8 @@
     textmate
     zencoding-mode
     ack
-    powerline))
+    powerline
+    javap))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))

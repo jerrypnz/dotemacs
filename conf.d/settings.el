@@ -130,3 +130,5 @@
 (global-set-key (kbd "M-o") 'start-newline-prev)
 (global-set-key (kbd "C-:") 'toggle-clj-keyword-string)
 (global-set-key (kbd "C-S-g") 'ack-current-word)
+
+(require 'javap-mode)
