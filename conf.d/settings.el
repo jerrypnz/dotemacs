@@ -100,7 +100,7 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 
 ;; Smooth scrolling
-(setq scroll-margin 1
+(setq scroll-margin 10
       scroll-step 1
       scroll-conservatively 0
       scroll-up-aggressively 0.01
