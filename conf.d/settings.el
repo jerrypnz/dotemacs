@@ -116,7 +116,7 @@
 (global-set-key (kbd "C-.") 'next-buffer)
 
 ;; Find files in current project
-(global-set-key (kbd "C-S-r") 'find-file-in-project)
+;(global-set-key (kbd "C-S-r") 'find-file-in-project)
 
 ;; Expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -130,5 +130,4 @@
 (global-set-key (kbd "M-o") 'start-newline-prev)
 (global-set-key (kbd "C-:") 'toggle-clj-keyword-string)
 (global-set-key (kbd "C-S-g") 'ack-current-word)
-
-(require 'javap-mode)
+(global-set-key (kbd "C-*") 'isearch-forward-at-point)
