@@ -109,6 +109,10 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
+;; Keep isearch highlight, and use a keybinding to clear it manually
+(setq lazy-highlight-cleanup nil)
+(global-set-key (kbd "C-&") 'lazy-highlight-cleanup)
+
 ;; ===== Custom keybindings ====
 ;;
 ;; Buffer and window switching
