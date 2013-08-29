@@ -16,6 +16,7 @@
     iedit
     autopair
     auto-complete
+    auto-complete-clang-async
     color-theme-solarized
     cyberpunk-theme
     zenburn-theme
