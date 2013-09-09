@@ -29,7 +29,8 @@
   '("xelatex -shell-escape -interaction nonstopmode %f"
     "xelatex -shell-escape -interaction nonstopmode %f"
     "xelatex -shell-escape -interaction nonstopmode %f"
-    "xelatex -shell-escape -interaction nonstopmode %f")) ;; for multiple passes
+    "xelatex -shell-escape -interaction nonstopmode %f"
+    "rm -f %o/%b*.vrb")) ;; for multiple passes
 
 ;; Stop org from keep the tables centered
 (setq org-latex-tables-centered nil)
