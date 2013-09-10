@@ -71,7 +71,8 @@
   (local-set-key (kbd "RET") 'reindent-then-newline-and-indent))
 
 (mapc (lambda (hook) (add-hook hook 'set-newline-and-indent-key))
-      '(c-mode-common-hook))
+      '(c-mode-common-hook
+        js-mode-hook))
 
 ;; Turn on auto pair for certain modes
 (defun turn-on-autopair-mode ()
@@ -80,7 +81,8 @@
 (mapc (lambda (hook) (add-hook hook 'turn-on-autopair-mode))
       '(python-mode-hook
         c-mode-common-hook
-        ruby-mode-hook))
+        ruby-mode-hook
+        js-mode-hook))
 
 ;; Yasnippet
 (require 'yasnippet)
