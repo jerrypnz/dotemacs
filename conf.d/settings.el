@@ -1,7 +1,7 @@
 
 ;; Color theme
-(require 'birds-of-paradise-plus-theme)
-(load-theme 'birds-of-paradise-plus t)
+;(require 'birds-of-paradise-plus-theme)
+(load-theme 'cyberpunk t)
 
 ;; (setq evil-default-cursor t)
 
@@ -89,12 +89,12 @@
 (yas-global-mode 1)
 
 ;; Powerline
-(require 'powerline)
-(powerline-default-theme)
-
-(custom-set-faces
- '(mode-line ((t (:background "#0088cc" :foreground "white" :box nil))))
- '(mode-line-inactive ((t (:box nil)))))
+; (require 'powerline)
+; (powerline-default-theme)
+; 
+; (custom-set-faces
+;  '(mode-line ((t (:background "#0088cc" :foreground "white" :box nil))))
+;  '(mode-line-inactive ((t (:box nil)))))
 
 ;; Zen-coding
 (require 'zencoding-mode)
