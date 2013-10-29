@@ -11,3 +11,4 @@ ac-comphist.dat
 bookmarks
 conf.d/*.elc
 snippets/*/.yas-compiled-snippets.el
+session.*
