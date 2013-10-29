@@ -31,6 +31,9 @@
 ;; Undo tree
 (global-undo-tree-mode)
 
+;; Delete selected text
+(delete-selection-mode t)
+
 ;; TextMate minor mode
 (eval-after-load 'textmate
   '(progn

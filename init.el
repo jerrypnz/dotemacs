@@ -27,7 +27,9 @@
     org
     org2blog
     markdown-mode+
-    nrepl
+    cider
+    cider-decompile
+    cider-tracing
     ac-nrepl
     nrepl-eval-sexp-fu
     align-cljlet

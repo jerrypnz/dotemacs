@@ -22,6 +22,7 @@
 
 (require 'clojure-mode)
 (require 'rainbow-delimiters)
+(require 'ac-nrepl)
 
 
 (add-hook 'clojure-mode-hook
@@ -53,61 +54,36 @@
   (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'enable-paredit-mode)
   (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'rainbow-delimiters-mode))
 
-(defun live-windows-hide-eol ()
- "Do not show ^M in files containing mixed UNIX and DOS line endings."
- (interactive)
- (setq buffer-display-table (make-display-table))
- (aset buffer-display-table ?\^M []))
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'ac-nrepl-setup)
 
+(add-hook 'cider-repl-mode-hook 'enable-paredit-mode)
+(add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook 'subword-mode)
+(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 
-(when (eq system-type 'windows-nt)
-  (add-hook 'nrepl-mode-hook 'live-windows-hide-eol ))
-
-(add-hook 'nrepl-interaction-mode-hook
-          (lambda ()
-            (nrepl-turn-on-eldoc-mode)
-            (enable-paredit-mode)))
-
-(add-hook 'nrepl-mode-hook
-          (lambda ()
-            (nrepl-turn-on-eldoc-mode)
-            (enable-paredit-mode)
-            (define-key nrepl-mode-map
-              (kbd "{") 'paredit-open-curly)
-            (define-key nrepl-mode-map
-              (kbd "}") 'paredit-close-curly)))
-
-(setq nrepl-popup-stacktraces nil)
+(setq cider-popup-stacktraces nil)
 ;; (add-to-list 'same-window-buffer-names "*nrepl*")
 
-;;Auto Complete
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+;; (defun clojure-complete ()
+;;   (interactive)
+;;   (auto-complete '(ac-source-nrepl-ns
+;;                    ac-source-nrepl-vars
+;;                    ac-source-nrepl-ns-classes
+;;                    ac-source-nrepl-all-classes
+;;                    ac-source-nrepl-java-methods
+;;                    ac-source-nrepl-static-methods)))
 
-(defun clojure-complete ()
-  (interactive)
-  (auto-complete '(ac-source-nrepl-ns
-                   ac-source-nrepl-vars
-                   ac-source-nrepl-ns-classes
-                   ac-source-nrepl-all-classes
-                   ac-source-nrepl-java-methods
-                   ac-source-nrepl-static-methods)))
-
-(add-hook 'nrepl-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-/") 'clojure-complete)
-            (local-set-key (kbd "C-M-/") 'hippie-expand)))
-(add-hook 'nrepl-interaction-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-/") 'clojure-complete)
-            (local-set-key (kbd "C-M-/") 'hippie-expand)))
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-mode))
+  '(add-to-list 'ac-modes 'cider-repl-mode 'cider-mode))
 
-;;(setq nrepl-connected-hook (reverse nrepl-connected-hook))
+(eval-after-load "cider-mode"
+  '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
 
 ;; highlight expression on eval
 (require 'highlight)
 (require 'nrepl-eval-sexp-fu)
 (setq nrepl-eval-sexp-fu-flash-duration 0.5)
+(setq nrepl-hide-special-buffers t)
 
