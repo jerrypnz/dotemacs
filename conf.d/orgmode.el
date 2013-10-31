@@ -137,6 +137,7 @@ unwanted space when exporting org-mode to html."
         (orig-contents (ad-get-arg 1)) 
         (reg-han "[[:multibyte:]]")) 
     (setq fixed-contents (replace-regexp-in-string 
-                          (concat "\\(" reg-han "\\) *\n *\\(" reg-han "\\)") 
+                          (concat "\\(" reg-han
+                                  "\\) *\n *\\(" reg-han "\\)") 
                           "\\1\\2" orig-contents)) 
     (ad-set-arg 1 fixed-contents)))

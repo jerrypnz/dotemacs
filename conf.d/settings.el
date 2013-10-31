@@ -1,7 +1,8 @@
 
 ;; Color theme
 ;(require 'birds-of-paradise-plus-theme)
-(load-theme 'cyberpunk t)
+
+(load-theme 'deeper-blue t)
 
 ;; (setq evil-default-cursor t)
 
@@ -9,7 +10,7 @@
 (if (display-graphic-p)
     (progn
       (set-face-attribute
-       'default nil :font "Source Code Pro 9")
+       'default nil :font "Source Code Pro Bold 9")
       (dolist (charset '(kana han symbol cjk-misc bopomofo))
         (set-fontset-font (frame-parameter nil 'font)
                           charset
