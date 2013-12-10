@@ -21,9 +21,8 @@
     cyberpunk-theme
     zenburn-theme
     clojure-mode
-    python-mode
+    elpy
     geiser
-    ipython
     org
     org2blog
     markdown-mode+

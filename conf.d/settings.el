@@ -2,7 +2,7 @@
 ;; Color theme
 ;(require 'birds-of-paradise-plus-theme)
 
-(load-theme 'deeper-blue t)
+(load-theme 'solarized-dark t)
 
 ;; (setq evil-default-cursor t)
 
