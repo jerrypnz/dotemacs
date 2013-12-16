@@ -53,13 +53,15 @@
                  (backward-char)
                  (toggle-clj-keyword-string)))))))
 
-(defun xml-format ()
-  (interactive)
+(defun xml-format (use-xmllint-p)
+  (interactive "P")
   (save-excursion
     (shell-command-on-region
      (mark)
      (point)
-     "xmllint --format -"
+     (if use-xmllint-p
+         "xmllint --format -"
+       "tidy -utf8 -xml -i -w 76 --indent-attributes true 2>/dev/null")
      (buffer-name) t)))
 
 (defun json-format ()
