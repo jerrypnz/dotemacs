@@ -15,8 +15,7 @@
         (set-fontset-font (frame-parameter nil 'font)
                           charset
                           (font-spec :family "文泉驿等宽微米黑"
-                                     :size 13
-                                     :weight 'light)))))
+                                     :size 13)))))
 
 ;; Change auto-save dir
 (defvar my-backup-dir (concat temporary-file-directory "emacs-backup"))
