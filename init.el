@@ -24,7 +24,6 @@
     elpy
     geiser
     org
-    org2blog
     markdown-mode+
     cider
     cider-decompile

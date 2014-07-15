@@ -2,7 +2,7 @@
 ;; Color theme
 ;(require 'birds-of-paradise-plus-theme)
 
-(load-theme 'solarized-dark t)
+(load-theme 'cyberpunk t)
 
 ;; (setq evil-default-cursor t)
 

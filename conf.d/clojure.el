@@ -63,7 +63,7 @@
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 
-(setq cider-popup-stacktraces nil)
+;;(setq cider-popup-stacktraces nil)
 ;; (add-to-list 'same-window-buffer-names "*nrepl*")
 
 ;; (defun clojure-complete ()
