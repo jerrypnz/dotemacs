@@ -90,7 +90,7 @@
   (let ((word (get-word-under-cursor)))
     (if (string= word "")
         (message "No word found under cursor")
-      (ack (concat "ack " word)))))
+      (ack (concat ack-command word)))))
 
 ;; I-search with initial contents.
 ;; original source: http://platypope.org/blog/2007/8/5/a-compendium-of-awesomeness

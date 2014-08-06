@@ -2,4 +2,3 @@
 
 (elpy-enable)
 (elpy-use-ipython)
-(elpy-clean-modeline)

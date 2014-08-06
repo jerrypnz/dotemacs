@@ -36,6 +36,7 @@
     expand-region
     textmate
     zencoding-mode
+    ample-zen-theme
     ack))
 
 (dolist (p my-packages)
