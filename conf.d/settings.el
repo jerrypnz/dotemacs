@@ -7,7 +7,7 @@
 ;; (setq evil-default-cursor t)
 
 ;; Setting fonts for GUI emacs
-(if (display-graphic-p)
+(if (and (eq system-type 'gnu/linux) (display-graphic-p))
     (progn
       (set-face-attribute
        'default nil :font "Source Code Pro Bold 9")
