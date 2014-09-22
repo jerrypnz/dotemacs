@@ -15,8 +15,6 @@
     starter-kit-bindings
     iedit
     autopair
-    auto-complete
-    auto-complete-clang-async
     color-theme-solarized
     cyberpunk-theme
     zenburn-theme
@@ -26,9 +24,6 @@
     org
     markdown-mode+
     cider
-    cider-decompile
-    cider-tracing
-    ac-nrepl
     nrepl-eval-sexp-fu
     align-cljlet
     yasnippet

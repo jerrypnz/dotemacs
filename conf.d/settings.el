@@ -87,6 +87,9 @@
         ruby-mode-hook
         js-mode-hook))
 
+;; Company Mode
+(add-hook 'after-init-hook 'global-company-mode)
+
 ;; Yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)

@@ -1,9 +1,9 @@
-;; (eval-after-load 'clojure-mode
-;;   '(font-lock-add-keywords
-;;     'clojure-mode `(("(\\(fn\\)[\[[:space:]]"
-;;                      (0 (progn (compose-region (match-beginning 1)
-;;                                                (match-end 1) "λ")
-;;                                nil))))))
+(eval-after-load 'clojure-mode
+  '(font-lock-add-keywords
+    'clojure-mode `(("(\\(fn\\)[\[[:space:]]"
+                     (0 (progn (compose-region (match-beginning 1)
+                                               (match-end 1) "λ")
+                               nil))))))
 
 (eval-after-load 'clojure-mode
   '(font-lock-add-keywords
@@ -22,8 +22,6 @@
 
 (require 'clojure-mode)
 (require 'rainbow-delimiters)
-(require 'ac-nrepl)
-
 
 (add-hook 'clojure-mode-hook
           (lambda ()
@@ -55,31 +53,14 @@
   (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'rainbow-delimiters-mode))
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
 
 (add-hook 'cider-repl-mode-hook 'enable-paredit-mode)
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook 'subword-mode)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 
 ;;(setq cider-popup-stacktraces nil)
 ;; (add-to-list 'same-window-buffer-names "*nrepl*")
-
-;; (defun clojure-complete ()
-;;   (interactive)
-;;   (auto-complete '(ac-source-nrepl-ns
-;;                    ac-source-nrepl-vars
-;;                    ac-source-nrepl-ns-classes
-;;                    ac-source-nrepl-all-classes
-;;                    ac-source-nrepl-java-methods
-;;                    ac-source-nrepl-static-methods)))
-
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode 'cider-mode))
-
-(eval-after-load "cider-mode"
-  '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
 
 ;; highlight expression on eval
 (require 'highlight)
