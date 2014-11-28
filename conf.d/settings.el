@@ -10,12 +10,13 @@
 (if (and (eq system-type 'gnu/linux) (display-graphic-p))
     (progn
       (set-face-attribute
-       'default nil :font "Source Code Pro Bold 9")
-      (dolist (charset '(kana han symbol cjk-misc bopomofo))
-        (set-fontset-font (frame-parameter nil 'font)
-                          charset
-                          (font-spec :family "文泉驿等宽微米黑"
-                                     :size 13)))))
+       'default nil :font "Source Code Pro Bold 9")))
+
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+                    charset
+                    (font-spec :family "WenQuanYi Micro Hei Mono Light"
+                               :size 14)))
 
 ;; Change auto-save dir
 (defvar my-backup-dir (concat temporary-file-directory "emacs-backup"))
@@ -89,6 +90,7 @@
 
 ;; Company Mode
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0)
 
 ;; Yasnippet
 (require 'yasnippet)

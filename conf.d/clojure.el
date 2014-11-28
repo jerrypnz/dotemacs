@@ -27,7 +27,6 @@
           (lambda ()
             (enable-paredit-mode)
             (rainbow-delimiters-mode)
-            (add-to-list 'ac-sources 'ac-source-yasnippet)
             (setq buffer-save-without-query t)))
 
 
