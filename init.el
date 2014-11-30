@@ -24,6 +24,7 @@
     org
     markdown-mode+
     cider
+    clj-refactor
     nrepl-eval-sexp-fu
     align-cljlet
     yasnippet

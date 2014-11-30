@@ -22,13 +22,14 @@
 
 (require 'clojure-mode)
 (require 'rainbow-delimiters)
+(require 'clj-refactor)
 
 (add-hook 'clojure-mode-hook
           (lambda ()
             (enable-paredit-mode)
             (rainbow-delimiters-mode)
-            (setq buffer-save-without-query t)))
-
+            (setq buffer-save-without-query t)
+            (clj-refactor-mode 1)))
 
 ;;Treat hyphens as a word character when transposing words
 (defvar clojure-mode-with-hyphens-as-word-sep-syntax-table
@@ -67,3 +68,4 @@
 (setq nrepl-eval-sexp-fu-flash-duration 0.5)
 (setq nrepl-hide-special-buffers t)
 
+(cljr-add-keybindings-with-prefix "C-c C-m")
