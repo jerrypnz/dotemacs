@@ -12,3 +12,5 @@ bookmarks
 conf.d/*.elc
 snippets/*/.yas-compiled-snippets.el
 session.*
+/projectile-bookmarks.eld
+/projectile.cache

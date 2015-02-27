@@ -1,6 +1,32 @@
+;; Better defaults
+(menu-bar-mode -1)
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+
+(setq inhibit-startup-screen t)
+
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
+(show-paren-mode 1)
+(setq-default indent-tabs-mode nil)
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t
+      save-interprogram-paste-before-kill t
+      apropos-do-all t
+      mouse-yank-at-point t
+      require-final-newline t
+      visible-bell t
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      save-place-file (concat user-emacs-directory "places"))
+
+;; Packages
+
 (require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
@@ -9,31 +35,33 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(starter-kit
-    starter-kit-lisp
-    starter-kit-eshell
-    starter-kit-bindings
-    iedit
+  '(helm
+    helm-ack
+    helm-projectile
+    magit
+    projectile
+    multiple-cursors
     autopair
     color-theme-solarized
     cyberpunk-theme
     zenburn-theme
+    ample-zen-theme
     clojure-mode
+    cider
     elpy
     geiser
     org
     markdown-mode+
-    cider
     clj-refactor
     nrepl-eval-sexp-fu
     align-cljlet
     yasnippet
     undo-tree
     expand-region
-    textmate
     zencoding-mode
-    ample-zen-theme
-    ack))
+    ack
+    scala-mode2
+    sbt-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -47,4 +75,5 @@
 (mapc (lambda (filename)
         (load filename nil nil t))
       (directory-files my-conf-dir t "\\.elc$"))
+
 (put 'downcase-region 'disabled nil)

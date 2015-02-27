@@ -1,8 +1,9 @@
-
 ;; Color theme
 ;(require 'birds-of-paradise-plus-theme)
 
-(load-theme 'ample-zen t)
+;(load-theme 'ample-zen t)
+;(load-theme 'solarized-light t)
+(load-theme 'zenburn t)
 
 ;; (setq evil-default-cursor t)
 
@@ -36,38 +37,35 @@
 (delete-selection-mode t)
 
 ;; TextMate minor mode
-(eval-after-load 'textmate
-  '(progn
-     (define-key *textmate-mode-map* [(meta return)] nil)
-     (define-key *textmate-mode-map* [(control c) (control k)] nil)
-     (define-key *textmate-mode-map* [(control c) (control t)] nil)))
-
-(textmate-mode)
-(add-to-list '*textmate-project-roots* "project.clj")
-(add-to-list '*textmate-project-roots* "setup.py")
-(add-to-list '*textmate-project-roots* ".ropeproject")
-(add-to-list '*textmate-project-roots* ".project")
-(add-to-list '*textmate-project-roots* "build.xml")
-(add-to-list '*textmate-project-roots* "pom.xml")
-(add-to-list '*textmate-project-roots* "build.gradle")
+; (eval-after-load 'textmate
+;   '(progn
+;      (define-key *textmate-mode-map* [(meta return)] nil)
+;      (define-key *textmate-mode-map* [(control c) (control k)] nil)
+;      (define-key *textmate-mode-map* [(control c) (control t)] nil)))
+; 
+; (textmate-mode)
+; (add-to-list '*textmate-project-roots* "project.clj")
+; (add-to-list '*textmate-project-roots* "setup.py")
+; (add-to-list '*textmate-project-roots* ".ropeproject")
+; (add-to-list '*textmate-project-roots* ".project")
+; (add-to-list '*textmate-project-roots* "build.xml")
+; (add-to-list '*textmate-project-roots* "pom.xml")
+; (add-to-list '*textmate-project-roots* "build.gradle")
+; (add-to-list '*textmate-project-roots* "build.sbt")
 
 ;; Ack. use textmate project root as ack root dir
-(defun get-project-dir (arg)
-  (textmate-project-root))
-
-(setq ack-default-directory-function 'get-project-dir)
 
 ;; IDO hacks
 ;; Display ido results vertically, rather than horizontally
-(setq ido-decorations
-      (quote ("\n-> "
-              """\n   " "\n   ..." "[" "]"
-              " [No match]" " [Matched]"
-              " [Not readable]" " [Too big]"
-              " [Confirm]")))
-(defun ido-disable-line-trucation ()
-  (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
+;(setq ido-decorations
+;      (quote ("\n-> "
+;              """\n   " "\n   ..." "[" "]"
+;              " [No match]" " [Matched]"
+;              " [Not readable]" " [Too big]"
+;              " [Confirm]")))
+;(defun ido-disable-line-trucation ()
+;  (set (make-local-variable 'truncate-lines) nil))
+;(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
 
 ;; RET to newline-and-indent
