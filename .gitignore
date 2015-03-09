@@ -14,3 +14,4 @@ snippets/*/.yas-compiled-snippets.el
 session.*
 /projectile-bookmarks.eld
 /projectile.cache
+.DS_Store

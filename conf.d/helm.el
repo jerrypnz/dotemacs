@@ -28,3 +28,33 @@
       helm-ff-file-name-history-use-recentf t)
 
 (helm-mode 1)
+
+;; customize
+(custom-set-variables
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-auto-update t)
+ '(helm-gtags-prefix-key "C-t")
+ '(helm-gtags-suggested-key-mapping t))
+
+;; key bindings
+(eval-after-load "helm-gtags"
+  '(progn
+     (define-key helm-gtags-mode-map (kbd "M-t") 'helm-gtags-find-tag)
+     (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
+     (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
+     (define-key helm-gtags-mode-map (kbd "M-g M-p") 'helm-gtags-parse-file)
+     (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+     (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+     (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-find-tag-from-here)
+     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+
+;; helm-ag
+(setq helm-ag-base-command "ag --nocolor --nogroup")
+(setq helm-ag-command-option "--all-text")
+(setq helm-ag-insert-at-point 'symbol)
+
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
+
+

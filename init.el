@@ -36,11 +36,12 @@
 
 (defvar my-packages
   '(helm
-    helm-ack
+    helm-ag
     helm-projectile
     magit
     projectile
     multiple-cursors
+    ace-jump-mode
     autopair
     color-theme-solarized
     cyberpunk-theme
@@ -61,7 +62,9 @@
     zencoding-mode
     ack
     scala-mode2
-    sbt-mode))
+    sbt-mode
+    php-mode
+    web-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
