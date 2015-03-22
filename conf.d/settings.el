@@ -107,6 +107,9 @@
 (setq zencoding-indentation 2)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 
+;; Cleanup spaces on save
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
 ;; Smooth scrolling
 (setq scroll-margin 10
       scroll-step 1
@@ -127,9 +130,6 @@
 (global-set-key (kbd "C-,") 'previous-buffer)
 (global-set-key (kbd "C-.") 'next-buffer)
 
-;; Find files in current project
-;(global-set-key (kbd "C-S-r") 'find-file-in-project)
-
 ;; Expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -142,5 +142,4 @@
 (global-set-key (kbd "C-o") 'start-newline-next)
 (global-set-key (kbd "M-o") 'start-newline-prev)
 (global-set-key (kbd "C-:") 'toggle-clj-keyword-string)
-(global-set-key (kbd "C-S-g") 'ack-current-word)
 (global-set-key (kbd "C-*") 'isearch-forward-at-point)

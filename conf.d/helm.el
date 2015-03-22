@@ -33,7 +33,6 @@
 (custom-set-variables
  '(helm-gtags-ignore-case t)
  '(helm-gtags-auto-update t)
- '(helm-gtags-prefix-key "C-t")
  '(helm-gtags-suggested-key-mapping t))
 
 ;; key bindings
@@ -57,4 +56,4 @@
   (interactive)
   (helm-ag (projectile-project-root)))
 
-
+(global-set-key (kbd "C-M-f") 'projectile-helm-ag)
