@@ -110,6 +110,9 @@
 ;; Cleanup spaces on save
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
+;; Auto revert
+(global-auto-revert-mode t)
+
 ;; Smooth scrolling
 (setq scroll-margin 10
       scroll-step 1
