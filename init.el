@@ -47,6 +47,7 @@
     cyberpunk-theme
     zenburn-theme
     ample-zen-theme
+    company
     clojure-mode
     cider
     elpy
@@ -64,7 +65,9 @@
     scala-mode2
     sbt-mode
     php-mode
-    web-mode))
+    web-mode
+    powerline
+    diminish))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))

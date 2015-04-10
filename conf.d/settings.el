@@ -42,7 +42,7 @@
 ;      (define-key *textmate-mode-map* [(meta return)] nil)
 ;      (define-key *textmate-mode-map* [(control c) (control k)] nil)
 ;      (define-key *textmate-mode-map* [(control c) (control t)] nil)))
-; 
+;
 ; (textmate-mode)
 ; (add-to-list '*textmate-project-roots* "project.clj")
 ; (add-to-list '*textmate-project-roots* "setup.py")
@@ -95,9 +95,9 @@
 (yas-global-mode 1)
 
 ;; Powerline
-; (require 'powerline)
-; (powerline-default-theme)
-; 
+(require 'powerline)
+(powerline-default-theme)
+;
 ; (custom-set-faces
 ;  '(mode-line ((t (:background "#0088cc" :foreground "white" :box nil))))
 ;  '(mode-line-inactive ((t (:box nil)))))
