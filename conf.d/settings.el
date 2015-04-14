@@ -136,6 +136,9 @@
 ;; Expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; Join lines
+(global-set-key (kbd "C-c q") 'join-line)
+
 ;; Ace Jump Mode
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
