@@ -69,3 +69,8 @@
 (setq nrepl-hide-special-buffers t)
 
 (cljr-add-keybindings-with-prefix "C-c C-m")
+
+(defvar custom-my-let-style-forms '(fact))
+
+(dolist (sym custom-my-let-style-forms)
+  (put-clojure-indent sym 1))

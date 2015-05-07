@@ -139,6 +139,9 @@
 ;; Join lines
 (global-set-key (kbd "C-c q") 'join-line)
 
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; Ace Jump Mode
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
