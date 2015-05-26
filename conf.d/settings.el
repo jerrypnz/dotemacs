@@ -84,7 +84,8 @@
       '(python-mode-hook
         c-mode-common-hook
         ruby-mode-hook
-        js-mode-hook))
+        js-mode-hook
+        scala-mode-hook))
 
 ;; Company Mode
 (add-hook 'after-init-hook 'global-company-mode)
@@ -110,8 +111,14 @@
 ;; Cleanup spaces on save
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
+;; XML indentation
+(setq nxml-child-indent 4)
+
 ;; Auto revert
 (global-auto-revert-mode t)
+
+;; Magit
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; Smooth scrolling
 (setq scroll-margin 10
@@ -141,6 +148,9 @@
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; Helm AG
+(global-set-key (kbd "C-x a") 'projectile-helm-ag)
 
 ;; Ace Jump Mode
 (require 'ace-jump-mode)
