@@ -67,7 +67,9 @@
     php-mode
     web-mode
     powerline
-    diminish))
+    diminish
+    color-theme-sanityinc-tomorrow
+    monokai-theme))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))

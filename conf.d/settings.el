@@ -1,9 +1,10 @@
 ;; Color theme
 ;(require 'birds-of-paradise-plus-theme)
 
-;(load-theme 'ample-zen t)
-;(load-theme 'solarized-light t)
-(load-theme 'zenburn t)
+;;(load-theme 'ample-zen t)
+;;(load-theme 'solarized-light t)
+;;(load-theme 'zenburn t)
+(load-theme 'sanityinc-tomorrow-eighties t)
 
 ;; (setq evil-default-cursor t)
 
@@ -96,8 +97,8 @@
 (yas-global-mode 1)
 
 ;; Powerline
-(require 'powerline)
-(powerline-default-theme)
+;;(require 'powerline)
+;;(powerline-default-theme)
 ;
 ; (custom-set-faces
 ;  '(mode-line ((t (:background "#0088cc" :foreground "white" :box nil))))

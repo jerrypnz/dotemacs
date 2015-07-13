@@ -16,3 +16,4 @@ session.*
 /projectile.cache
 .DS_Store
 recentf
+/tramp

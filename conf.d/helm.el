@@ -48,12 +48,10 @@
      (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
 
 ;; helm-ag
-(setq helm-ag-base-command "ag --nocolor --nogroup")
+(setq helm-ag-base-command "ag --nocolor --nogroup --ignore target")
 (setq helm-ag-command-option "--all-text")
 (setq helm-ag-insert-at-point 'symbol)
 
 (defun projectile-helm-ag ()
   (interactive)
   (helm-ag (projectile-project-root)))
-
-(global-set-key (kbd "C-M-f") 'projectile-helm-ag)
