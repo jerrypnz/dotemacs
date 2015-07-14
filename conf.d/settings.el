@@ -138,8 +138,8 @@
 ;; ===== Custom keybindings ====
 ;;
 ;; Buffer and window switching
-(global-set-key (kbd "C-,") 'previous-buffer)
-(global-set-key (kbd "C-.") 'next-buffer)
+;;(global-set-key (kbd "C-,") 'previous-buffer)
+;;(global-set-key (kbd "C-.") 'next-buffer)
 
 ;; Expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -148,7 +148,14 @@
 (global-set-key (kbd "C-c q") 'join-line)
 
 ;; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x g s") 'magit-status)
+(global-set-key (kbd "C-x g l") 'magit-log)
+(global-set-key (kbd "C-x g L") 'magit-log-buffer-file)
+(global-set-key (kbd "C-x g b") 'magit-blame)
+(global-set-key (kbd "C-x g r") 'magit-rebase)
+(global-set-key (kbd "C-x g R") 'magit-rebase-interactive)
+(global-set-key (kbd "C-x g c") 'magit-checkout)
+(global-set-key (kbd "C-x g B") 'magit-branch-manager)
 
 ;; Helm AG
 (global-set-key (kbd "C-x a") 'projectile-helm-ag)
