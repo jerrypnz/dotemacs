@@ -66,6 +66,7 @@
     sbt-mode
     php-mode
     web-mode
+    haskell-mode
     powerline
     diminish
     color-theme-sanityinc-tomorrow
