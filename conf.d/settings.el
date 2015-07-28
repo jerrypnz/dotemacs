@@ -170,3 +170,5 @@
 (global-set-key (kbd "M-o") 'start-newline-prev)
 (global-set-key (kbd "C-:") 'toggle-clj-keyword-string)
 (global-set-key (kbd "C-*") 'isearch-forward-at-point)
+
+(global-set-key (kbd "C-x g u") 'git/browse-repo)
