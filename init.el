@@ -1,3 +1,4 @@
+(setq gc-cons-threshold 100000000)
 ;; Better defaults
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
@@ -27,12 +28,10 @@
 ;; Packages
 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-(when (not package-archive-contents)
-  (package-refresh-contents))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
+                         ("melpa-stable" . "http://stable.melpa.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 (defvar my-packages
   '(helm
@@ -43,7 +42,6 @@
     multiple-cursors
     ace-jump-mode
     autopair
-    color-theme-solarized
     cyberpunk-theme
     zenburn-theme
     ample-zen-theme
@@ -67,10 +65,29 @@
     php-mode
     web-mode
     haskell-mode
+    dockerfile-mode
+    puppet-mode
     powerline
     diminish
     color-theme-sanityinc-tomorrow
+    whitespace-cleanup-mode
     monokai-theme))
+
+(when (boundp 'package-pinned-packages)
+  (setq package-pinned-packages
+                '((cider              . "melpa-stable")
+                  (clojure-mode       . "melpa-stable")
+                  (clj-refactor       . "melpa-stable")
+                  (scala-mode2        . "melpa-stable")
+                  (rainbow-delimiters . "melpa-stable")
+                  (helm               . "melpa")
+                  (helm-projectile    . "melpa")
+                  (projectile         . "melpa"))))
+
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -86,3 +103,5 @@
       (directory-files my-conf-dir t "\\.elc$"))
 
 (put 'downcase-region 'disabled nil)
+
+(setq gc-cons-threshold 1000000)

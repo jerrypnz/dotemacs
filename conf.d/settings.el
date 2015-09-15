@@ -110,7 +110,8 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 
 ;; Cleanup spaces on save
-(add-hook 'before-save-hook 'whitespace-cleanup)
+;;(add-hook 'before-save-hook 'whitespace-cleanup)
+(global-whitespace-cleanup-mode)
 
 ;; XML indentation
 (setq nxml-child-indent 4)
@@ -146,6 +147,9 @@
 
 ;; Join lines
 (global-set-key (kbd "C-c q") 'join-line)
+
+;; Fullscreen on Mac
+(global-set-key (kbd "C-x 9") 'toggle-frame-fullscreen)
 
 ;; Magit
 (global-set-key (kbd "C-x g s") 'magit-status)
