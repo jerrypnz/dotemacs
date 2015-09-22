@@ -37,6 +37,7 @@
   '(helm
     helm-ag
     helm-projectile
+    helm-gtags
     magit
     projectile
     multiple-cursors

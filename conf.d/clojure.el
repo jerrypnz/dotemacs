@@ -70,7 +70,7 @@
 
 (cljr-add-keybindings-with-prefix "C-c C-m")
 
-(defvar custom-my-let-style-forms '(fact))
+(defvar custom-my-let-style-forms '(fact facts))
 
 (dolist (sym custom-my-let-style-forms)
   (put-clojure-indent sym 1))
