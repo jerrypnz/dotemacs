@@ -161,8 +161,9 @@
 (global-set-key (kbd "C-x g c") 'magit-checkout)
 (global-set-key (kbd "C-x g B") 'magit-branch-manager)
 
-;; Helm AG
+;; Helm
 (global-set-key (kbd "C-x a") 'projectile-helm-ag)
+(global-set-key (kbd "C-c r") 'helm-resume)
 
 ;; Ace Jump Mode
 (require 'ace-jump-mode)
