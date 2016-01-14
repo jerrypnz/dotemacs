@@ -4,7 +4,7 @@
 ;;(load-theme 'ample-zen t)
 ;;(load-theme 'solarized-light t)
 ;;(load-theme 'zenburn t)
-(load-theme 'sanityinc-tomorrow-eighties t)
+;(load-theme 'sanityinc-tomorrow-eighties t)
 
 ;; (setq evil-default-cursor t)
 

@@ -1,4 +1,7 @@
 ;; elpy configuration: https://github.com/jorgenschaefer/elpy
 
-(elpy-enable)
-(elpy-use-ipython)
+(use-package elpy
+  :ensure t
+  :config
+  (elpy-enable)
+  (elpy-use-ipython))
