@@ -1,7 +1,0 @@
-#name: texcode
-# --
-#+BEGIN_LaTex
-\begin{lstlisting}{language=${1:elisp}}
-$0
-\end{lstlisting}
-#+END_LaTex

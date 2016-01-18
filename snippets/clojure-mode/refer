@@ -1,3 +1,0 @@
-#name: refer
-# --
-(:refer-clojure :exclude [$0])

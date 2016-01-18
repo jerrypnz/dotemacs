@@ -1,5 +1,0 @@
-#name: fig
-# --
-#+CAPTION: ${1:Caption}
-#+LABEL: fig:${2:figure}
-[[${3:./img/}]]

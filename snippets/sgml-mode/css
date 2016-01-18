@@ -1,3 +1,0 @@
-#name: css
-# --
-<link href="${1:css/bootstrap.css}" rel="stylesheet"/>

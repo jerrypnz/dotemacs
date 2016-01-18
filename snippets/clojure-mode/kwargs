@@ -1,3 +1,0 @@
-#name: keyword args
-# --
-& {:keys [${1:keys}] :or {${2:defaults}}}

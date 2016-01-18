@@ -1,5 +1,0 @@
-* Dot Emacs
-
-
-This configuration is no longer maintained. Use spacemacs instead.
-
