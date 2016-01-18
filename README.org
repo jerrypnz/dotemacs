@@ -1,0 +1,8 @@
+* Spacemacs Configuration
+
+This is my Emacs configuration based on the [[http://spacemacs.org/][Spacemacs]].
+
+It's still a work in progress and I need to migrate some of my old stuff to the
+new setup.
+
+For my old configuration, please refer to the [[https://github.com/moonranger/dotemacs/tree/old-config][old-config]] branch.
