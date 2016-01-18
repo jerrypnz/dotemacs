@@ -1,76 +1,69 @@
-(eval-after-load 'clojure-mode
-  '(font-lock-add-keywords
-    'clojure-mode `(("(\\(fn\\)[\[[:space:]]"
-                     (0 (progn (compose-region (match-beginning 1)
-                                               (match-end 1) "λ")
-                               nil))))))
+(use-package clojure-mode
+  :ensure t
+  :pin melpa-stable
+  :mode (("\\.clj\\'" . clojure-mode)
+         ("\\.cljs\\'" . clojure-mode))
 
-(eval-after-load 'clojure-mode
-  '(font-lock-add-keywords
-    'clojure-mode `(("\\(#\\)("
-                     (0 (progn (compose-region (match-beginning 1)
-                                               (match-end 1) "ƒ")
-                               nil))))))
+  :config
+  (font-lock-add-keywords
+   'clojure-mode `(("(\\(fn\\)[\[[:space:]]"
+                    (0 (progn (compose-region (match-beginning 1)
+                                              (match-end 1) "λ")
+                              nil)))))
 
-(eval-after-load 'clojure-mode
-  '(font-lock-add-keywords
-    'clojure-mode `(("\\(#\\){"
-                     (0 (progn (compose-region (match-beginning 1)
-                                               (match-end 1) "∈")
-                               nil))))))
+  (font-lock-add-keywords
+   'clojure-mode `(("\\(#\\)("
+                    (0 (progn (compose-region (match-beginning 1)
+                                              (match-end 1) "ƒ")
+                              nil)))))
 
+  (font-lock-add-keywords
+   'clojure-mode `(("\\(#\\){"
+                    (0 (progn (compose-region (match-beginning 1)
+                                              (match-end 1) "∈")
+                              nil)))))
 
-(require 'clojure-mode)
-(require 'rainbow-delimiters)
-(require 'clj-refactor)
+  ;;Treat hyphens as a word character when transposing words
+  (defvar clojure-mode-with-hyphens-as-word-sep-syntax-table
+    (let ((st (make-syntax-table clojure-mode-syntax-table)))
+      (modify-syntax-entry ?- "w" st)
+      st))
 
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (enable-paredit-mode)
-            (rainbow-delimiters-mode)
-            (setq buffer-save-without-query t)
-            (clj-refactor-mode 1)))
+  (defun live-transpose-words-with-hyphens (arg)
+    "Treat hyphens as a word character when transposing words"
+    (interactive "*p")
+    (with-syntax-table clojure-mode-with-hyphens-as-word-sep-syntax-table
+      (transpose-words arg)))
 
-;;Treat hyphens as a word character when transposing words
-(defvar clojure-mode-with-hyphens-as-word-sep-syntax-table
-  (let ((st (make-syntax-table clojure-mode-syntax-table)))
-    (modify-syntax-entry ?- "w" st)
-    st))
+  (bind-keys :map clojure-mode-map
+             ("M-t" . live-transpose-words-with-hyphens))
 
-(defun live-transpose-words-with-hyphens (arg)
-  "Treat hyphens as a word character when transposing words"
-  (interactive "*p")
-  (with-syntax-table clojure-mode-with-hyphens-as-word-sep-syntax-table
-    (transpose-words arg)))
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (setq buffer-save-without-query t)))
 
-(define-key clojure-mode-map (kbd "M-t") 'live-transpose-words-with-hyphens)
+  (defvar custom-my-let-style-forms '(fact facts))
 
-(setq auto-mode-alist (append '(("\\.cljs$" . clojure-mode))
-                              auto-mode-alist))
+  (dolist (sym custom-my-let-style-forms)
+    (put-clojure-indent sym 1)))
 
-(dolist (x '(scheme emacs-lisp lisp))
-  (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'enable-paredit-mode)
-  (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'rainbow-delimiters-mode))
+(use-package cider
+  :ensure t
+  :pin melpa-stable
+  :config
+  (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+  (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
+  (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'cider-repl-mode-hook 'subword-mode))
 
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(use-package clj-refactor
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook (lambda() (clj-refactor-mode 1)))
+  (cljr-add-keybindings-with-prefix "C-c C-m"))
 
-(add-hook 'cider-repl-mode-hook 'enable-paredit-mode)
-(add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'cider-repl-mode-hook 'subword-mode)
-
-;;(setq cider-popup-stacktraces nil)
-;; (add-to-list 'same-window-buffer-names "*nrepl*")
-
-;; highlight expression on eval
-(require 'highlight)
-(require 'nrepl-eval-sexp-fu)
-(setq nrepl-eval-sexp-fu-flash-duration 0.5)
-(setq nrepl-hide-special-buffers t)
-
-(cljr-add-keybindings-with-prefix "C-c C-m")
-
-(defvar custom-my-let-style-forms '(fact facts))
-
-(dolist (sym custom-my-let-style-forms)
-  (put-clojure-indent sym 1))
+(use-package nrepl-eval-sexp-fu
+  :config
+  (use-package highlight)
+  (setq nrepl-eval-sexp-fu-flash-duration 0.5)
+  (setq nrepl-hide-special-buffers t))
