@@ -30,9 +30,11 @@ values."
      git
      markdown
      org
+     chinese
 
      ;; Personal layers under ~/.spacemacs.d/layers
      jp-core
+     jp-org-better-latex
 
      ;;Programming languages
      clojure
