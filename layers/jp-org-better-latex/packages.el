@@ -6,7 +6,7 @@
 (setq jp-org-better-latex-packages
       '(org :location built-in))
 
-(defun org/post-init-org ()
+(defun jp-org-better-latex/post-init-org ()
 
   (setq org-latex-pdf-process
         '("xelatex -shell-escape -interaction nonstopmode %f"
