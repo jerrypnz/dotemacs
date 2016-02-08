@@ -3,7 +3,6 @@
 (setq jp-scala-packages
       '(scala-mode2))
 
-
 (defun jp-scala/pre-init-scala-mode2 ()
 
   (spacemacs|use-package-add-hook scala-mode2
@@ -21,7 +20,6 @@
       "Insert margin `|' and indent the line if we are in a multiline string.
 Only works when previous line contains a margin. Remember to add `stripMargin' to
 the end of your string."
-      (interactive)
       (when (scala//in-multiline-string-p)
         (let ((prev-line (buffer-substring-no-properties
                           (line-beginning-position 0)
@@ -48,8 +46,26 @@ the end of your string."
       (scala/newline-and-indent-with-asterisk)
       (scala/insert-margin-on-multiline-string))
 
+    (defun scala/insert-margin-befor-ending-parens ()
+      (cond
+       ((eq 'scala/newline-and-indent-with-pipe this-command)
+        (save-excursion
+          (forward-line 1)
+          (scala/insert-margin-on-multiline-string)))
+
+       ;; Thse two commands are defined in `jp-core' layer, which is like `o'
+       ;; and `O' command in vim.
+       ((or (eq 'jp/start-newline-next this-command)
+            (eq 'jp/start-newline-prev this-command))
+        (scala/insert-margin-on-multiline-string))))
+
     (define-key scala-mode-map (kbd "RET") 'scala/newline-and-indent-with-pipe)
-    (define-key scala-mode-map (kbd "C-c |") 'scala/insert-margin-on-multiline-string)
+
+    (add-hook 'scala-mode-hook
+              (lambda ()
+                ;; Add the hook to the end of the list and use buffer local hooks
+                ;; because we want to enable this hook only in scala-mode.
+                (add-hook 'post-command-hook 'scala/insert-margin-befor-ending-parens t t)))
 
     )
   )
