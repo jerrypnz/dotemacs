@@ -26,7 +26,6 @@ values."
      spacemacs-ivy
      auto-completion
      better-defaults
-     emacs-lisp
      git
      markdown
      org
@@ -41,8 +40,8 @@ values."
      clojure
      (scala :variables
             scala-auto-insert-asterisk-in-comments t
-            scala-use-unicode-arrows t
-            )
+            scala-use-unicode-arrows t)
+     emacs-lisp
      haskell
      python
      java

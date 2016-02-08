@@ -15,7 +15,7 @@
              (is-string (nth 3 state))
              (start (nth 8 state)))
         (and is-string
-             (string= "\"\"\"" (buffer-substring start (+ start 3))))))
+             (string= "\"\"\"" (buffer-substring-no-properties start (+ start 3))))))
 
     (defun scala/insert-margin-on-multiline-string ()
       "Insert margin `|' and indent the line if we are in a multiline string.
@@ -25,10 +25,23 @@ the end of your string."
       (when (scala//in-multiline-string-p)
         (let ((prev-line (buffer-substring-no-properties
                           (line-beginning-position 0)
-                          (line-end-position 0))))
-          (message prev-line)
-          (when (string-match "^[[:space:]]*|" prev-line)
-            (insert (match-string-no-properties 0 prev-line))))))
+                          (line-end-position 0)))
+              (current-line (thing-at-point 'line)))
+          (when (not (string-match-p "^[[:space:]]*|" current-line))
+            (cond
+             ;; We are in the middle of multiline string. Use the same indent
+             ;; as previous line.
+             ((string-match "^[[:space:]]*\\(|[[:space:]]*\\)" prev-line)
+              (let ((prefix (match-string-no-properties 0 prev-line)))
+                (beginning-of-line)
+                (insert prefix)))
+
+             ;; We are in the beginning of a multiline string. scala-mode2 supports
+             ;; indent of multiline strings if it starts with a `|'.
+             ((string-match "\"\"\"[[:space:]]*|" prev-line)
+              (beginning-of-line)
+              (insert "|")
+              (indent-according-to-mode)))))))
 
     (defun scala/newline-and-indent-with-pipe ()
       (interactive)
@@ -36,6 +49,7 @@ the end of your string."
       (scala/insert-margin-on-multiline-string))
 
     (define-key scala-mode-map (kbd "RET") 'scala/newline-and-indent-with-pipe)
+    (define-key scala-mode-map (kbd "C-c |") 'scala/insert-margin-on-multiline-string)
 
     )
   )
