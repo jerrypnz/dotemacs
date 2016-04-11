@@ -34,3 +34,10 @@
      (point)
      "python -m json.tool"
      (buffer-name) t)))
+
+
+;;(defun jp/encode-url ()
+;;  (interactive "r")
+;;  (save-excursion
+;;
+;;    ))

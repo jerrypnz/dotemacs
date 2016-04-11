@@ -27,9 +27,11 @@ values."
      auto-completion
      better-defaults
      git
+     github
      markdown
      org
      chinese
+     graphviz
 
      ;; Personal layers under ~/.spacemacs.d/layers
      jp-core
@@ -48,6 +50,7 @@ values."
      python
      java
      javascript
+     typescript
      php
      html
      yaml
@@ -131,10 +134,10 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(twilight-anti-bright
+                         monokai
                          material
                          spacegray
-                         twilight-anti-bright
                          omtose-phellack
                          spacemacs-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -280,6 +283,7 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (delete-selection-mode t)
+  (global-set-key (kbd "C-x j e") 'mc/edit-lines)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
