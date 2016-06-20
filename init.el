@@ -18,12 +18,13 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     spacemacs-ivy
+     ivy
      auto-completion
      better-defaults
      git
@@ -37,6 +38,7 @@ values."
      jp-core
      jp-org-better-latex
      jp-scala
+     jp-cypher
 
      ;;Programming languages
      clojure
@@ -65,6 +67,7 @@ values."
      restclient
      deft
      ;;gtags ;;https://github.com/syl20bnr/spacemacs/issues/4239
+     syntax-checking
 
      ;;Themes
      themes-megapack
@@ -72,14 +75,14 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(cypher-mode)
+   dotspacemacs-additional-packages '(ag
+                                      wgrep-ag)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -285,68 +288,5 @@ layers configuration. You are free to put any user code."
   (delete-selection-mode t)
   (setq js-indent-level 2)
   (global-set-key (kbd "C-x j e") 'mc/edit-lines)
+  (require 'wgrep)
   )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#595963" "#B262AF" "#74B2A8" "#AFCCBC" "#668EB0" "#676EA1" "#7F8FB2" "#BCC1C4"])
- '(compilation-message-face (quote default))
- '(custom-safe-themes
-   (quote
-    ("38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "3a53f98f4354d66ffaec1edce1bc54a3c622c8a73a583e90fde456b311b889f2" "341a1f149c8ab55893e5a065e96235e43ee9f82423f4c018bf31a430e1dc1b0f" "a985799595034bd95cd74ed968d15f93a1145ed81ffcf0537401ec7dd6ebed4f" default)))
- '(fci-rule-color "#3E3D31" t)
- '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
- '(highlight-tail-colors
-   (quote
-    (("#3E3D31" . 0)
-     ("#67930F" . 20)
-     ("#349B8D" . 30)
-     ("#21889B" . 50)
-     ("#968B26" . 60)
-     ("#A45E0A" . 70)
-     ("#A41F99" . 85)
-     ("#3E3D31" . 100))))
- '(magit-diff-use-overlays nil)
- '(pos-tip-background-color "#5C6743")
- '(pos-tip-foreground-color "#CFCFCF")
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#F92672")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#E6DB74")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#A6E22E")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#A1EFE4")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#66D9EF"))))
- '(vc-annotate-very-old-color nil)
- '(weechat-color-list
-   (unspecified "#272822" "#3E3D31" "#A20C41" "#F92672" "#67930F" "#A6E22E" "#968B26" "#E6DB74" "#21889B" "#66D9EF" "#A41F99" "#FD5FF0" "#349B8D" "#A1EFE4" "#F8F8F2" "#F8F8F0"))
- '(xterm-color-names
-   ["#595963" "#B262AF" "#74B2A8" "#AFCCBC" "#668EB0" "#676EA1" "#7F8FB2" "#BCC1C4"])
- '(xterm-color-names-bright
-   ["#73767d" "#CC68C8" "#7CCFC1" "#B4DEC7" "#6CA7D9" "#868DD9" "#B2B2D4" "#ADADAD"]))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
