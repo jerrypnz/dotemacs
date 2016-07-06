@@ -46,8 +46,9 @@ values."
             scala-auto-insert-asterisk-in-comments t
             scala-use-unicode-arrows t)
      (haskell :variables
+              haskell-completion-backend 'intero
               haskell-process-type 'stack-ghci
-              haskell-enable-hindent-style "johan-tibell")
+              haskell-enable-hindent-style "chris-done")
      emacs-lisp
      python
      java
