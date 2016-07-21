@@ -1,11 +1,11 @@
 ;; Custom stuff to the scala layer
 
 (setq jp-scala-packages
-      '(scala-mode2))
+      '(scala-mode))
 
-(defun jp-scala/pre-init-scala-mode2 ()
+(defun jp-scala/pre-init-scala-mode ()
 
-  (spacemacs|use-package-add-hook scala-mode2
+  (spacemacs|use-package-add-hook scala-mode
     :post-config
 
     (defun scala//in-multiline-string-p ()
@@ -34,7 +34,7 @@ the end of your string."
                 (beginning-of-line)
                 (insert prefix)))
 
-             ;; We are in the beginning of a multiline string. scala-mode2 supports
+             ;; We are in the beginning of a multiline string. scala-mode supports
              ;; indent of multiline strings if it starts with a `|'.
              ((string-match "\"\"\"[[:space:]]*|" prev-line)
               (beginning-of-line)
