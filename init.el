@@ -290,4 +290,13 @@ layers configuration. You are free to put any user code."
   (setq js-indent-level 2)
   (global-set-key (kbd "C-x j e") 'mc/edit-lines)
   (require 'wgrep)
+  (custom-set-variables
+   '(vi-tilde-fringe-bitmap-array [#b00000000
+                                   #b00000000
+                                   #b00000000
+                                   #b01110010
+                                   #b01011010
+                                   #b01001110
+                                   #b00000000
+                                   #b00000000]))
   )
