@@ -288,6 +288,42 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  (defun rust-play ()
+    (interactive)
+    (let* ((temporary-file-directory (expand-file-name ".cargo/tmp/" (getenv "HOME")))
+           (tf
+            (progn
+              (make-directory temporary-file-directory t)
+              (make-temp-file "rust-play-" nil ".rs"))))
+      (find-file tf)
+      (insert "
+fn main() {
+    println!(\"\")
+}")
+      (goto-char 28)
+      (rust-mode)
+      (define-key
+        (current-local-map)
+        (kbd "C-c C-k")
+        (lambda () (interactive)
+          (save-buffer)
+          (let* ((bf (buffer-file-name))
+                 (bn (file-name-sans-extension bf)))
+            (delete-file bf)
+            (if (file-exists-p bn)
+                (delete-file bn)))
+          (kill-buffer)))
+      (define-key
+        (current-local-map)
+        (kbd "C-c C-c")
+        (lambda () (interactive)
+          (save-buffer)
+          (let* ((bf (buffer-file-name))
+                 (bn (file-name-sans-extension bf)))
+            (compile (format "rustc %s && %s" bf bn)))))))
+
+
   (delete-selection-mode t)
   (setq js-indent-level 2)
   (global-set-key (kbd "C-x j e") 'mc/edit-lines)
