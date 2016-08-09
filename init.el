@@ -292,6 +292,8 @@ layers configuration. You are free to put any user code."
   (setq js-indent-level 2)
   (global-set-key (kbd "C-x j e") 'mc/edit-lines)
   (require 'wgrep)
+  (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+
   (custom-set-variables
    '(vi-tilde-fringe-bitmap-array [#b00000000
                                    #b00000000
