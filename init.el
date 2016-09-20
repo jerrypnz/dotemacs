@@ -39,6 +39,7 @@ values."
      jp-org-better-latex
      jp-scala
      jp-cypher
+     jp-go
 
      ;;Programming languages
      clojure
@@ -49,6 +50,8 @@ values."
               haskell-completion-backend 'intero
               haskell-process-type 'stack-ghci
               haskell-enable-hindent-style "chris-done")
+     (go :variables
+         go-tab-width 2)
      emacs-lisp
      rust
      python
@@ -62,7 +65,6 @@ values."
      shell-scripts
      dockerfile
      puppet
-     go
 
      ;;Tools
      dash
@@ -339,39 +341,4 @@ fn main() {
                                    #b01001110
                                    #b00000000
                                    #b00000000]))
-
-
-  (defun go-play ()
-    (interactive)
-    (let* ((temporary-file-directory (expand-file-name "tmp/" (getenv "GOPATH")))
-           (tf
-            (progn
-              (make-directory temporary-file-directory t)
-              (make-temp-file "go-play" nil ".go"))))
-      (find-file tf)
-      (insert "package main
-
-import (
-        \"fmt\"
-)
-
-func main() {
-        fmt.Printf(\"\")
-}")
-      (goto-char 61)
-      (go-mode)
-      (define-key
-        (current-local-map)
-        (kbd "C-c C-k")
-        (lambda () (interactive)
-          (save-buffer)
-          (delete-file (buffer-file-name))
-          (kill-buffer)))
-      (define-key
-        (current-local-map)
-        (kbd "C-c C-c")
-        (lambda () (interactive)
-          (save-buffer)
-          (compile (format "go run %s" (buffer-file-name)))))))
-
   )
