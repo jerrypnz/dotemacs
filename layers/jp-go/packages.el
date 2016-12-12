@@ -1,15 +1,11 @@
 ;; Custom stuff to the go layer
 
 (setq jp-go-packages
-      '(go-mode
-        (go-guru :location site)))
+      '(go-mode))
 
 (defun jp-go/pre-init-go-mode ()
   (spacemacs|use-package-add-hook go-mode
     :post-config
-
-    ;; Use goimports
-    (setq gofmt-command "goimports")
 
     ;; Jump to definition
     (define-key go-mode-map (kbd "M-.") 'godef-jump)
@@ -49,12 +45,3 @@ func main() {
             (compile (format "go run %s" (buffer-file-name)))))))
 
     ))
-
-
-(defun jp-go/init-go-guru()
-  (let ((go-path (getenv "GOPATH")))
-    (if (not go-path)
-        (spacemacs-buffer/warning
-         "GOPATH variable not found, go-guru configuration skipped.")
-      (load-gopath-file
-       go-path "/src/golang.org/x/tools/cmd/guru/go-guru.el"))))

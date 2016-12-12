@@ -4,7 +4,7 @@
 ;; - Better Chinese support
 
 (setq jp-org-better-latex-packages
-      '(org :location built-in))
+      '(org))
 
 (defun jp-org-better-latex/post-init-org ()
 
