@@ -46,12 +46,4 @@ func main() {
 
     )
 
-  (spacemacs|use-package-add-hook flycheck-gometalinter
-    :post-config
-
-    ;; skips 'vendor' directories and sets GO15VENDOREXPERIMENT=1
-    (setq flycheck-gometalinter-vendor t)
-    ;; only run fast linters
-    (setq flycheck-gometalinter-fast t)
-    ;; use in tests files
-    (setq flycheck-gometalinter-test t)))
+  )
