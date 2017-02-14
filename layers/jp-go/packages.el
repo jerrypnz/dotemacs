@@ -10,6 +10,9 @@
     ;; Jump to definition
     (define-key go-mode-map (kbd "M-.") 'godef-jump)
 
+    ;; Workaround for https://github.com/syl20bnr/spacemacs/pull/8179/files
+    (defalias 'go--position-bytes 'position-bytes)
+
     ;; Go playground
     (defun go-play ()
       (interactive)
