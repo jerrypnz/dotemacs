@@ -67,6 +67,7 @@ the end of your string."
                 ;; because we want to enable this hook only in scala-mode.
                 (add-hook 'post-command-hook 'scala/insert-margin-befor-ending-parens t t)))
 
+    (setq ensime-startup-notification nil)
     (setq ensime-startup-snapshot-notification nil)
 
     )
